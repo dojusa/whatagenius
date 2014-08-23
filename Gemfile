@@ -25,6 +25,10 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'spring',        group: :development
 
 
+###############################################################
+####### O que foi colocado após a criação do projeto ##########
+###############################################################
+
 
 # twitter-bootstrap
 gem "twitter-bootstrap-rails"
@@ -32,6 +36,9 @@ gem "twitter-bootstrap-rails"
 # Usando mongoid para o mongodb
 gem "mongoid", "~> 4.0.0"
 gem "bson_ext"
+
+#heroku
+gem 'rails_12factor', group: :production
 
 # Use unicorn as the app server
 # gem 'unicorn'
