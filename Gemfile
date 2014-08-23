@@ -25,6 +25,10 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'spring',        group: :development
 
 
+
+# twitter-bootstrap
+gem "twitter-bootstrap-rails"
+
 # Usando mongoid para o mongodb
 gem "mongoid", "~> 4.0.0"
 gem "bson_ext"
