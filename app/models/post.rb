@@ -6,7 +6,8 @@ class Post
   field :title, type: String
   field :body, type: String
   field :likes, type: Integer, default: 0
-  field :date, type: Date
+  field :date, type: DateTime
   
   belongs_to :author
+
 end

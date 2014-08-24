@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
   
   def index
-    @posts = Post.all
+    @posts = Post.desc(:date)
     top_posts()
   end
   
@@ -15,7 +15,7 @@ class PostsController < ApplicationController
   
   def create
     @post = Post.new(post_params)
-    @post.date = Date.today
+    @post.date = DateTime.now
     if @post.save
       redirect_to posts_path
     else
