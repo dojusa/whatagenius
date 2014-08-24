@@ -22,6 +22,15 @@ class PostsController < ApplicationController
     end
   end
   
+  def like
+    @post = Post.find(params[:id])
+    @post.update_attribute(:likes, @post.likes + 1)
+    
+    respond_to do |format|
+      format.js
+    end
+  end
+  
   private
     def post_params
       params.require(:post).permit(:title, :author, :body, :description)
