@@ -2,6 +2,7 @@ class PostsController < ApplicationController
   
   def index
     @posts = Post.all
+    top_posts()
   end
   
   def show
@@ -29,6 +30,10 @@ class PostsController < ApplicationController
     respond_to do |format|
       format.js
     end
+  end
+  
+  def top_posts
+    @tops = Post.desc(:likes).limit(5)
   end
   
   private
