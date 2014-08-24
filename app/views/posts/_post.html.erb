@@ -1,21 +1,24 @@
-		<div class="well">
+
 <h2>
 	<%= link_to post.title, post_path(post)%>
+	<span class="lead">
+	    by <%= link_to post.author.nickname, author_path(post.author)%>
+	</span>
 </h2>
-
-<p class="lead">
-    by <%= link_to post.author.nickname, author_path(post.author)%>
-</p>
-<p><span class="glyphicon glyphicon-time"></span> Posted on <%= post.date %></p>
 
 <p>
 	<%= post.body %>
 </p>
 
 <p>
-	<output id="post_like_<%= post.id %>">
-		Likes <%= post.likes %>
-	</output>
+	<span class="glyphicon glyphicon-time"></span> Posted on <%= post.date %>
+</p>
+
+<p>
+	<span class="lead" id="post_like_<%= post.id %>">
+		<%= post.likes %> Likes 
+	</span>
 	<%= link_to 'Like', like_post_path(post), remote: true, class: "btn btn-primary" %>
 </p>
-</div>
+
+<hr>

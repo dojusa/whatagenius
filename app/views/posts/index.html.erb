@@ -32,14 +32,12 @@
                 <div class="row">
                     <div class="col-lg-6">
                         <ul class="list-unstyled">
-                            <li><a href="#"> Name</a>
-                            </li>
-                            <li><a href="#"> Name</a>
-                            </li>
-                            <li><a href="#"> Name</a>
-                            </li>
-                            <li><a href="#"> Name</a>
-                            </li>
+							<% @tops.each do |t| %>
+	                            <li>
+									<%= link_to t.title, post_path(t) %>
+									by <%= t.author.nickname %>
+								</li>
+							<%end%>
                         </ul>
                     </div>
                 </div>
