@@ -1,5 +1,9 @@
 <p>
-	Nome: <%= author.name%>
+	Name: <%= link_to author.name, author_path(author) %>
 	<br>
-	Nickname: <%= author.nickname%>
+	Nickname: <%= author.nickname %>
+	<br>
+	Description: <%= author.description %>
+	<br>
+	<%= link_to 'Edit', edit_author_path(author)%>
 </p>

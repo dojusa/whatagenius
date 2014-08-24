@@ -1,7 +1,7 @@
 class AuthorsController < ApplicationController
   
   def index
-    @authors = Author.all
+    @authors = Author.asc(:name, :nickname)
   end
   
   def show
@@ -22,10 +22,15 @@ class AuthorsController < ApplicationController
     end
   end
   
+  def edit
+    @author = Author.find(params[:id])
+    render 'new'
+  end
+  
   def update
-    @author = Author.new(author_params)
+    @author = Author.find(params[:id])
     
-    if @author.save
+    if @author.update(author_params)
       redirect_to authors_path
     else
       render 'new'
@@ -34,6 +39,6 @@ class AuthorsController < ApplicationController
   
   private
     def author_params
-      params.require(:author).permit(:name, :nickname)
+      params.require(:author).permit(:name, :nickname, :description)
     end
 end

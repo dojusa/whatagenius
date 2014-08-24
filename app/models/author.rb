@@ -6,6 +6,7 @@ class Author
   
   field :name, type: String
   field :nickname, type: String 
+  field :description, type: String
   
   has_many :posts
 end
