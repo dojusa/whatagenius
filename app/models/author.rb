@@ -8,5 +8,5 @@ class Author
   field :nickname, type: String 
   field :description, type: String
   
-  has_many :posts
+  has_many :posts, dependent: :restrict
 end
