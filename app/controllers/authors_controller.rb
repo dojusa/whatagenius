@@ -37,6 +37,14 @@ class AuthorsController < ApplicationController
     end
   end
   
+  def destroy
+    @author = Author.find(params[:id])
+    
+    @author.destroy
+      
+    @authors = Author.asc(:name, :nickname)    
+  end
+  
   private
     def author_params
       params.require(:author).permit(:name, :nickname, :description)

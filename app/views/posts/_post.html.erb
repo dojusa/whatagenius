@@ -2,13 +2,12 @@
 <h2>
 	<%= link_to post.title, post_path(post)%>
 	<span class="lead">
-	    by <%= link_to post.author.nickname, author_path(post.author)%>
+	    by <%= link_to "#{post.author.name} (#{post.author.nickname})", author_path(post.author)%>
 	</span>
 </h2>
 
 	<pre class="sh_java">
-	
-	<%= post.body %>
+		<%= post.body %>
 	</pre>
 	
 <p>
@@ -22,8 +21,4 @@
 	<%= link_to 'Like', like_post_path(post), remote: true, class: "btn btn-primary" %>
 </p>
 
-<script type="text/javascript">
-
-sh_highlightDocument();
-</script>
 <hr>

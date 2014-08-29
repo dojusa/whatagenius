@@ -26,10 +26,6 @@ class PostsController < ApplicationController
   def like
     @post = Post.find(params[:id])
     @post.update_attribute(:likes, @post.likes + 1)
-    
-    respond_to do |format|
-      format.js
-    end
   end
   
   def top_posts

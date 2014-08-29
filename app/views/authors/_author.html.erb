@@ -1,9 +1,13 @@
-<p>
+<p id="author_<%= author.id %>">
 	Name: <%= link_to author.name, author_path(author) %>
 	<br>
 	Nickname: <%= author.nickname %>
 	<br>
 	Description: <%= author.description %>
-	<br>
-	<%= link_to 'Edit', edit_author_path(author)%>
+	
+	<% if user_signed_in? %>
+		<br>
+		<%= link_to 'Edit', edit_author_path(author)%>
+		<%= link_to 'Remove', author_path(author), remote: true, method: :delete, data: {confirm: "Are you sure?"}%>
+	<% end %>
 </p>

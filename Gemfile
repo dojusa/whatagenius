@@ -29,6 +29,8 @@ gem 'spring',        group: :development
 ####### O que foi colocado após a criação do projeto ##########
 ###############################################################
 
+# authentication
+gem 'devise'
 
 # twitter-bootstrap
 gem "twitter-bootstrap-rails"
