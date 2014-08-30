@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
   
   def index
-    @posts = Post.desc(:date)
+    @posts = Post.desc(:date).page(params[:page]).per(10)
     top_posts()
   end
   

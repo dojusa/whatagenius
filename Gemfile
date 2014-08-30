@@ -29,6 +29,9 @@ gem 'spring',        group: :development
 ####### O que foi colocado após a criação do projeto ##########
 ###############################################################
 
+# Pagination
+gem 'kaminari'
+
 # authentication
 gem 'devise'
 
