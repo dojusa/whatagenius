@@ -9,5 +9,5 @@ class Post
   field :date, type: DateTime
   
   belongs_to :author
-
+  
 end

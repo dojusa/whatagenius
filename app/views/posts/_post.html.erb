@@ -14,11 +14,26 @@
 	<span class="glyphicon glyphicon-time"></span> Posted on <%= post.date.strftime("%d/%m/%y at %H:%M:%S") %>
 </p>
 
-<p>
-	<span class="lead" id="post_like_<%= post.id %>">
-		<%= post.likes %> Likes 
-	</span>
-	<%= link_to 'Like', like_post_path(post), remote: true, class: "btn btn-primary" %>
-</p>
+<div style="padding-bottom: 40px;">
+	
+	<div style="float: left;">
+	    <span class="lead" id="post_like_<%= post.id %>">
+			<%= post.likes %> Likes 
+		</span>
+	
+	
+		<%= link_to 'Like', like_post_path(post), remote: true, class: "btn btn-primary" %>
+	</div>
+	
+	<% if user_signed_in? %>
+		<div style="float: right; padding-right: 5px;">
 
-<hr>
+			<%= link_to 'Edit', edit_post_path(post), class: "btn btn-warning", style: "align: right"%>
+
+			<%= link_to 'Remove', post_path(post), method: :delete, data:{confirm: "Are you sure?"}, class: "btn btn-danger"%>
+
+		</div>
+	<% end %>
+</div>
+     
+<hr style="clear: both;">
