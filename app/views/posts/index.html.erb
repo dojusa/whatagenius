@@ -5,9 +5,10 @@
 	        <small>all from genius</small>
 	    </h1>
 
-		
-		<%= render @posts %> 
-		<%= paginate @posts %> 
+		<div id="posts">
+			<%= render @posts %> 
+			<%= paginate @posts %> 
+		</div>
 	</div>
 	
         <!-- Blog Sidebar Widgets Column -->
@@ -17,12 +18,14 @@
             <div class="well">
                 <h4>Post Search</h4>
                 <div class="input-group">
-                    <input type="text" class="form-control">
-                    <span class="input-group-btn">
-                        <button class="btn btn-default" type="button">
-                            <span class="glyphicon glyphicon-search"></span>
-                    </button>
-                    </span>
+					<%= form_tag posts_path, :method => 'get', remote: true, :id => "posts_search" do %>
+						<span class="input-group-btn">
+					        <%= text_field_tag :search, params[:search], class: "form-control" %>
+					        <%= button_tag type: 'submit',  :title => nil, class: "btn btn-default" do %>								
+	                            <span class="glyphicon glyphicon-search"></span>
+							<% end %>
+						</span>
+					<% end %>
                 </div>
                 <!-- /.input-group -->
             </div>

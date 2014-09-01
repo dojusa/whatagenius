@@ -1,3 +1,12 @@
+GIT
+  remote: git://github.com/mauriciozaffari/mongoid_search.git
+  revision: dfc7c45157a9339862f140a5641a5ea249d6f48a
+  branch: master
+  specs:
+    mongoid_search (0.3.2)
+      fast-stemmer (~> 1.0.0)
+      mongoid (>= 3.0.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -48,6 +57,7 @@ GEM
       warden (~> 1.2.3)
     erubis (2.7.0)
     execjs (2.2.1)
+    fast-stemmer (1.0.2)
     hike (1.2.3)
     i18n (0.6.11)
     jbuilder (2.1.3)
@@ -156,6 +166,7 @@ DEPENDENCIES
   jquery-rails
   kaminari
   mongoid (~> 4.0.0)
+  mongoid_search!
   rails (= 4.1.4)
   rails_12factor
   sass-rails (~> 4.0.3)

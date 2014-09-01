@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
   
   def index
-    @posts = Post.desc(:date).page(params[:page]).per(10)
+    @posts = Post.full_search(params[:search]).page(params[:page]).per(10)
     top_posts()
   end
   
@@ -41,7 +41,8 @@ class PostsController < ApplicationController
   def destroy
     @post = Post.find(params[:id])
     @post.destroy
-    redirect_to posts_path
+    @posts = Post.search(params[:search]).page(params[:page]).per(10)
+    render 'index'
   end
   
   def like

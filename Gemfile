@@ -42,6 +42,9 @@ gem "twitter-bootstrap-rails"
 gem "mongoid", "~> 4.0.0"
 gem "bson_ext"
 
+# full text-search
+gem 'mongoid_search', github: 'mauriciozaffari/mongoid_search', branch: 'master'
+
 #heroku
 gem 'rails_12factor', group: :production
 
