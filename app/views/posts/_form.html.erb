@@ -12,7 +12,7 @@
 	
 	<p>
 		<%= f.label :author %><br>
-		<%= f.collection_select :author, Author.asc(:name), :id, :name %>
+		<%= f.collection_select :author_id, Author.asc(:name), :id, :name %>
 	</p>
 	
 	<%= f.submit class: "btn btn-success" %>
