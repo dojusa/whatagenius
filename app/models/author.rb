@@ -4,9 +4,7 @@ class Author
   
   has_mongoid_attached_file :avatar, styles: {
     small: '30x30',
-    thumb: '100x100>',
-    square: '100x100#',
-    medium: '300x300>'
+    square: '100x100#'
   }
   
   validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
