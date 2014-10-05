@@ -1,5 +1,15 @@
 class Author
   include Mongoid::Document
+  include Mongoid::Paperclip
+  
+  has_mongoid_attached_file :avatar, styles: {
+    small: '30x30',
+    thumb: '100x100>',
+    square: '100x100#',
+    medium: '300x300>'
+  }
+  
+  validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
   
   validates_presence_of :name, :nickname
   validates :name, :nickname, uniqueness: { case_sensitive: false }

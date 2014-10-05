@@ -29,6 +29,13 @@ gem 'spring',        group: :development
 ####### O que foi colocado após a criação do projeto ##########
 ###############################################################
 
+# File upload aws s3
+gem "mongoid-paperclip", :require => "mongoid_paperclip"
+gem 'aws-sdk'
+
+# authorization
+gem 'cancancan', '~> 1.9'
+
 # Pagination
 gem 'kaminari'
 

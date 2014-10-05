@@ -6,6 +6,8 @@ class User
          :recoverable, :rememberable, :trackable, :validatable
   
   field :username, type: String
+  
+  field :admin, type: Boolean, default: false
 
   ## Database authenticatable
   field :email,              type: String, default: ""

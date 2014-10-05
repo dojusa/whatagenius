@@ -1,5 +1,15 @@
-<%= form_for @author do |f| %>
+<%= form_for @author, :html => { :multipart => true } do |f| %>
 	<%= error_messages(@author) %>
+
+	<p>
+		<% if @author.avatar? %>
+			<%= image_tag @author.avatar.url(:square), :class => "img-circle"%>
+		<% else %>
+			<%= image_tag "avatar.png", size: "100", :class => "img-circle"%>
+		<%end%>
+		
+		<%= f.file_field :avatar %>
+	</p>
 
 	<p>
 		<%= f.label :name, :class => 'control-label' %>
@@ -12,7 +22,7 @@
 	
 	<p>
 		<%= f.label :description, :class => 'control-label' %>
-		<%= f.text_area :description, :class => 'form-control' %>
+		<%= f.text_area :description, input_html:{data:{role:'tagsinput'}} %>
 	</p>
 	
 	<%= f.submit class: "btn btn-success"%>
