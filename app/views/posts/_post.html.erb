@@ -4,9 +4,9 @@
 	<span class="lead">
 	    by 
 		<%if post.author.avatar? %>
-			<%= image_tag post.author.avatar.url, size: "30", :class => "img-circle"%>
+			<%= image_tag post.author.avatar.url, size: "40", :class => "img-circle"%>
 		<%else%>
-			<%= image_tag "avatar.png", size: "30", :class => "img-circle" %>
+			<%= image_tag "avatar.png", size: "40", :class => "img-circle" %>
 		<%end%>
 			
 		<%= link_to "#{post.author.name} (#{post.author.nickname})", author_path(post.author)%>
