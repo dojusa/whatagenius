@@ -21,7 +21,10 @@
 	<% if user_signed_in? %>
 		<br>
 		<%= link_to 'Edit', edit_author_path(@author) , class: "btn btn-warning"%>
-		<%= link_to 'Remove', author_path(@author), remote: true, method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-danger"%>
+		<%= link_to 'Remove', author_path(@author), remote: true, 
+													method: :delete, 
+													data: {confirm: "Are you sure?"}, 
+													class: "btn btn-danger"%>
 	<% end %>
 </p>
 
