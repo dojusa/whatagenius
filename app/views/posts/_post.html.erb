@@ -1,46 +1,53 @@
 
-<h2>
-	<%= link_to post.title, post_path(post)%>
-	<span class="lead">
-	    by 
+<div class="post-card">
+	<div class="lead">
 		<%if post.author.avatar? %>
 			<%= image_tag post.author.avatar.url, size: "40", :class => "img-circle"%>
 		<%else%>
 			<%= image_tag "avatar.png", size: "40", :class => "img-circle" %>
 		<%end%>
-			
+		
 		<%= link_to "#{post.author.name} (#{post.author.nickname})", author_path(post.author)%>
-	</span>
-</h2>
-
-	<pre class="sh_java">
-		<%= post.body %>
-	</pre>
-	
-<p>
-	<span class="glyphicon glyphicon-time"></span> Posted on <%= post.date.strftime("%d/%m/%y at %H:%M:%S") %>
-</p>
-
-<div style="padding-bottom: 40px;">
-	
-	<div style="float: left;">
-	    <span class="lead" id="post_like_<%= post.id %>">
-			<%= post.likes %> Likes 
-		</span>
-	
-	
-		<%= link_to 'Like', like_post_path(post), remote: true, class: "btn btn-primary" %>
+		creator of
+		<%= link_to post.title, post_path(post) %>
 	</div>
 	
-	<% if user_signed_in? %>
-		<div style="float: right; padding-right: 5px;">
+	<div align="center">
+		<% if post.file? %>
+			<%= image_tag post.file.url(:vga) %>
+		<%end%>
+	</div>
+	
+	<% if post.body? %>
+		<pre class="sh_java">
+			<%= post.body %>
+		</pre>
+	<%end%>
+
+	<div style="padding-bottom: 40px;">
+	
+		<div style="clear: both; position: absolute; bottom: 0; left: 0; padding: 0 0 10px 20px;" >
+		    <span class="lead" id="post_like_<%= post.id %>">
+				<%= post.likes %> Likes 
+			</span>
+	
+	
+			<%= link_to 'Like', like_post_path(post), remote: true, class: "btn btn-primary" %>
+		</div>
+	
+		<% if user_signed_in? %>
+			<div style="clear: both; position: absolute; bottom: 0; right: 0; padding: 0 10px 10px 0;" >
 
 				<%= link_to 'Edit', edit_post_path(post), class: "btn btn-warning", style: "align: right"%>
 
-			<%= link_to 'Remove', post_path(post), method: :delete, remote: true, data:{confirm: "Are you sure?"}, class: "btn btn-danger"%>
+				<%= link_to 'Remove', 	post_path(post), 
+										method: :delete, 
+										remote: true, 
+										data:{confirm: "Are you sure?"}, 
+										class: "btn btn-danger"%>
 
-		</div>
-	<% end %>
-</div>
+			</div>
+		<% end %>
+	</div>
      
-<hr style="clear: both;">
+</div>

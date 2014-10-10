@@ -1103,7 +1103,7 @@ p {
   margin: 0 0 10px;
 }
 .lead {
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   font-size: 16px;
   font-weight: 300;
   line-height: 1.4;
@@ -1389,6 +1389,17 @@ pre code {
 .pre-scrollable {
   max-height: 340px;
   overflow-y: scroll;
+}
+
+.post-card {
+	min-width: 720px !important;
+	padding:1.5rem;
+	box-shadow:0 1px 2px #aaa;
+	background:white;
+	margin: 1rem 1rem 1rem 1rem;
+	display: inline-block;
+	float: left;
+	position: relative;
 }
 
 .card {

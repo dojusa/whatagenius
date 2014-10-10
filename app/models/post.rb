@@ -1,8 +1,19 @@
 class Post
   include Mongoid::Document
   include Mongoid::Search
+  include Mongoid::Paperclip
   
-  validates_presence_of :body, :title, :author, :date
+  has_mongoid_attached_file :file, styles: {
+    vga: '640x480#'
+  }
+  
+  validates_attachment :file, 
+    :size => { :in => 0..2.megabytes },
+    :content_type => { :content_type => /\Aimage\/.*\Z/ }
+
+  validates_presence_of :title
+  validates_presence_of :body, :unless => :file?
+  validates_presence_of :author, :date
   
   field :title, type: String
   field :body, type: String
