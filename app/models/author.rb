@@ -7,7 +7,9 @@ class Author
     square: '100x100#'
   }
   
-  validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
+  validates_attachment :avatar, 
+    :size => { :in => 0..2.megabytes },
+    :content_type => { :content_type => /\Aimage\/.*\Z/ }
   
   validates_presence_of :name, :nickname
   validates :name, :nickname, uniqueness: { case_sensitive: false }
