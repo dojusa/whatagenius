@@ -4,7 +4,7 @@ class Post
   include Mongoid::Paperclip
   
   has_mongoid_attached_file :file, styles: {
-    vga: '640x480#'
+    post: '640x480>'
   }
   
   validates_attachment :file, 

@@ -3,7 +3,7 @@
 
 	<p>
 		<% if @post.file? %>
-			<%= image_tag @post.file.url %>
+			<%= image_tag @post.file.url(:post) %>
 		<%end%>
 	
 		<%= f.file_field :file %>
