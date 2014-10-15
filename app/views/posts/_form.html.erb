@@ -1,13 +1,5 @@
 <%= form_for @post do |f| %>
 	<%= error_messages(@post) %>
-
-	<p>
-		<% if @post.file? %>
-			<%= image_tag @post.file.url(:post) %>
-		<%end%>
-	
-		<%= f.file_field :file %>
-	</p>
 	
 	<p>
 		<%= f.label :title, :class => 'control-label' %>
@@ -20,7 +12,22 @@
 	
 	<p>
 		<%= f.label :author %><br>
-		<%= f.collection_select :author_id, Author.asc(:name), :id, :name %>
+		<%= f.hidden_field :author_id, :id => "my_author_id" %>
+		<%= f.autocomplete_field :author_name, 
+				autocomplete_author_name_posts_path, 
+				:id_element => '#my_author_id',
+				:update_elements => {},
+				placeholder: 'This is an autocomplete',
+				class: 'form-control' %>
+	</p>
+	
+	<p>
+		<%= f.label :file %><br>
+		<% if @post.file? %>
+			<%= image_tag @post.file.url(:post) %>
+		<%end%>
+	
+		<%= f.file_field :file %>
 	</p>
 	
 	<%= f.submit class: "btn btn-success" %>

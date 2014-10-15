@@ -17,10 +17,19 @@ class Post
   
   field :title, type: String
   field :body, type: String
-  field :likes, type: Integer, default: 0
   field :date, type: DateTime
   
+  has_many :likes
+  
   belongs_to :author
+  
+  def author_name
+    if(self.author?)
+      return self.author.name
+    else
+      return ""
+    end
+  end
   
   search_in :title, :author => [:name, :nickname]
   

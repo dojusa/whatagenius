@@ -27,6 +27,7 @@ class User
   field :current_sign_in_ip, type: String
   field :last_sign_in_ip,    type: String
 
+  has_many :likes
   ## Confirmable
   # field :confirmation_token,   type: String
   # field :confirmed_at,         type: Time
@@ -45,5 +46,9 @@ class User
   
   def self.serialize_into_session(record)
       [record.id.to_s, record.authenticatable_salt]
+  end
+  
+  def already_liked?(post)
+    return self.likes.where(post: post).exists?
   end
 end

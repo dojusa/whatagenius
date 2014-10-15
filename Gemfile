@@ -13,7 +13,8 @@ gem 'coffee-rails', '~> 4.0.0'
 # gem 'therubyracer',  platforms: :ruby
 
 # Use jquery as the JavaScript library
-gem 'jquery-rails'
+gem 'jquery-rails', '~> 2.3.0'
+
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
@@ -42,8 +43,11 @@ gem 'kaminari'
 # authentication
 gem 'devise'
 
+gem 'less-rails'
+gem 'therubyracer'
+
 # twitter-bootstrap
-gem "twitter-bootstrap-rails"
+gem 'twitter-bootstrap-rails'
 
 # Usando mongoid para o mongodb
 gem "mongoid", "~> 4.0.0"
@@ -51,6 +55,9 @@ gem "bson_ext"
 
 # full text-search
 gem 'mongoid_search', github: 'mauriciozaffari/mongoid_search', branch: 'master'
+
+#autocomplete 
+gem 'rails4-autocomplete'
 
 #heroku
 gem 'rails_12factor', group: :production

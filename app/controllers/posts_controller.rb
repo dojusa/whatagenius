@@ -1,7 +1,9 @@
 class PostsController < ApplicationController
   
+  autocomplete :author, :name, :full => true
+    
   def index
-    @posts = Post.full_search(params[:search]).page(params[:page]).per(10)
+    @posts = Post.full_search(params[:search]).page(params[:page]).desc(:date).per(10)
     top_posts()
   end
   
@@ -41,13 +43,19 @@ class PostsController < ApplicationController
   def destroy
     @post = Post.find(params[:id])
     @post.destroy
-    @posts = Post.search(params[:search]).page(params[:page]).per(10)
+    index()
     render 'index'
   end
   
   def like
     @post = Post.find(params[:id])
-    @post.update_attribute(:likes, @post.likes + 1)
+    
+    if user_signed_in? and !current_user.already_liked?(@post)
+      @like = Like.new
+      @like.post = @post
+      @like.user = current_user
+      @like.save
+    end
   end
   
   def top_posts

@@ -19,4 +19,5 @@ class Author
   field :description, type: String
   
   has_many :posts, dependent: :restrict
+  
 end
