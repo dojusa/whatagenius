@@ -1,1 +1,6 @@
 $("#post_like_<%= @post.id %>").html("<%= @post.likes.size %> Likes");
+
+$("#bt_like_<%= @post.id %>").html(" <%= j (link_to "#{if current_user.already_liked?(@post) then 'Liked' else 'Like' end}", 
+													like_post_path(@post), 
+													class: 'btn btn-primary',
+													remote: true) %> ");

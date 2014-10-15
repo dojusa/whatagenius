@@ -30,14 +30,19 @@
 		    <span class="lead" id="post_like_<%= post.id %>">
 				<%= post.likes.size %> Likes 
 			</span>
-	
-
-				<%= link_to "#{if (user_signed_in? and current_user.already_liked?(post)) then 'Liked' else 'Like' end}", 
-					like_post_path(post), 
-					class: "btn btn-primary", 
-					remote: true,
-					disabled: (!user_signed_in? or (user_signed_in? and current_user.already_liked?(post))) %>
-
+			
+			<span id="bt_like_<%= post.id %>">
+				<%if user_signed_in? %>
+					<%= link_to "#{if current_user.already_liked?(post) then 'Liked' else 'Like' end}", 
+						like_post_path(post), 
+						class: "btn btn-primary", 
+						remote: true %>
+				<%else%>
+					<button class="btn btn-primary" disabled="true" >
+						Like
+					</button>
+				<%end%>
+			</span>
 		</div>
 	
 		<% if user_signed_in? %>
