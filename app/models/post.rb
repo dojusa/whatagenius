@@ -4,11 +4,11 @@ class Post
   include Mongoid::Paperclip
   
   has_mongoid_attached_file :file, styles: {
-    post: '640x480>'
+    post: '640x'
   }
   
   validates_attachment :file, 
-    :size => { :in => 0..2.megabytes },
+    :size => { :in => 0..3.megabytes },
     :content_type => { :content_type => /\Aimage\/.*\Z/ }
 
   validates_presence_of :title
