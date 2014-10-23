@@ -12,13 +12,16 @@
 	
 	<p>
 		<%= f.label :author %><br>
-		<%= f.hidden_field :author_id, :id => "my_author_id" %>
+		<%= f.collection_select :author_id, Author.asc(:name), :id, :name %>
+		
+		<!--<%= f.hidden_field :author_id, :id => "my_author_id" %>
+		
 		<%= f.autocomplete_field :author_name, 
 				autocomplete_author_name_posts_path, 
 				:id_element => '#my_author_id',
 				:update_elements => {},
 				placeholder: 'This is an autocomplete',
-				class: 'form-control' %>
+				class: 'form-control' %> -->
 	</p>
 	
 	<p>
