@@ -8,11 +8,11 @@
 	<%end%>
 	
 	<br>
-	Name: <%= link_to @author.name, author_path(@author) %>
+	<%=  t :name%>: <%= link_to @author.name, author_path(@author) %>
 	<br>
-	Nickname: <%= @author.nickname %>
+	<%=  t :nickname %>: <%= @author.nickname %>
 	<br>
-	Description: <%= @author.description %>
+	<%=  t :description%>: <%= @author.description %>
 	
 	<% if user_signed_in? %>
 		<br>

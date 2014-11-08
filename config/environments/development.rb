@@ -30,9 +30,13 @@ Rails.application.configure do
   config.assets.raise_runtime_errors = true
   
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
-  
-  Paperclip.options[:command_path] = "/Users/jusabe/Projetos/Rails/files"
 
+  Paperclip.options[:command_path] = "/usr/local/bin/"
+  
+  config.paperclip_defaults = {
+    :url => '/uploads/:class/:id/:style/:filename',
+    :path => 'public/uploads/:class/:id/:style/:filename'
+  }
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
 end

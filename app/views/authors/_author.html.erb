@@ -9,11 +9,11 @@
 	</div>
 
 	<div style="padding-top: 10px;">
-		<b>Name:</b> <%= link_to author.name, author_path(author) %>
+		<b><%= t :name %></b> <%= link_to author.name, author_path(author) %>
 		<br>
-		<b>Nickname:</b> <%= author.nickname %>
+		<b><%= t :nickname %>:</b> <%= author.nickname %>
 		<br>
-		<b>Description:</b> <%= author.description%>
+		<b><%= t :description %>:</b> <%= author.description%>
   	</div>
 
 	<div style="clear: both; position: absolute; bottom: 0; right: 0; padding: 0 10px 10px 0;" >

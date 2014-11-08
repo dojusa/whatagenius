@@ -1,0 +1,10 @@
+pt:
+  title: Título
+  body: Corpo
+  author: Autor
+  file: Arquivo
+  name: Nome
+  nickname: Nick
+  description: Descrição
+  
+  new_post: Novo Post
