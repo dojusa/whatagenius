@@ -2,30 +2,21 @@
 	<%= error_messages(@post) %>
 	
 	<p>
-		<%= f.label t :title, :class => 'control-label' %>
+		<%= f.label :title, :class => 'control-label' %>
 		<%= f.text_field :title, :class => 'form-control' %>
 	</p>
 	<p>
-		<%= f.label t :body, :class => 'control-label' %>
+		<%= f.label :body, :class => 'control-label' %>
 		<%= f.text_area :body, :class => 'form-control' %>
 	</p>
 	
 	<p>
-		<%= f.label t :author %><br>
+		<%= f.label :author %><br>
 		<%= f.collection_select :author_id, Author.asc(:name), :id, :name %>
-		
-		<!--<%= f.hidden_field :author_id, :id => "my_author_id" %>
-		
-		<%= f.autocomplete_field :author_name, 
-				autocomplete_author_name_posts_path, 
-				:id_element => '#my_author_id',
-				:update_elements => {},
-				placeholder: 'This is an autocomplete',
-				class: 'form-control' %> -->
 	</p>
 	
 	<p>
-		<%= f.label t :file %><br>
+		<%= f.label :file %><br>
 		<% if @post.file? %>
 			<%= image_tag @post.file.url(:post) %>
 		<%end%>

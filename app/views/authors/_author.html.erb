@@ -9,11 +9,11 @@
 	</div>
 
 	<div style="padding-top: 10px;">
-		<b><%= t :name %></b> <%= link_to author.name, author_path(author) %>
+		<b><%= t('mongoid.attributes.author.name') %>:</b> <%= link_to author.name, author_path(author) %>
 		<br>
-		<b><%= t :nickname %>:</b> <%= author.nickname %>
+		<b><%= t('mongoid.attributes.author.nickname') %>:</b> <%= author.nickname %>
 		<br>
-		<b><%= t :description %>:</b> <%= author.description%>
+		<b><%= t('mongoid.attributes.author.description') %>:</b> <%= author.description%>
   	</div>
 
 	<div style="clear: both; position: absolute; bottom: 0; right: 0; padding: 0 10px 10px 0;" >

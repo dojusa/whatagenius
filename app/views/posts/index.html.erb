@@ -4,48 +4,43 @@
 	        Posts
 	        <small>all from genius</small>
 	    </h1>
-
-		<div id="posts">
-			<%= render @posts %> 
-			<%= paginate @posts %> 
-		</div>
+  
+  		<div id="posts" class="container" style="padding-left: 0px !important;">
+  			<%= render @posts %> 
+  			<%= paginate @posts %> 
+  		</div>
 	</div>
 	
-        <!-- Blog Sidebar Widgets Column -->
-        <div class="col-md-4">
+  <!-- Blog Sidebar Widgets Column -->
+  <div class="col-md-4">
 
-            <!-- Blog Search Well -->
-            <div class="well">
-                <h4>Post Search</h4>
-                <div class="input-group">
-					<%= form_tag posts_path, :method => 'get', remote: true, :id => "posts_search" do %>
-						<span class="input-group-btn">
-					        <%= text_field_tag :search, params[:search], class: "form-control" %>
-					        <%= button_tag type: 'submit',  :title => nil, class: "btn btn-default" do %>								
-	                            <span class="glyphicon glyphicon-search"></span>
-							<% end %>
-						</span>
-					<% end %>
-                </div>
-                <!-- /.input-group -->
-            </div>
+    <!-- Blog Search Well -->
+    <div class="well">
+      <h4>Post Search</h4>
+      <div class="input-group">
+  			<%= form_tag posts_path, :method => 'get', remote: true, :id => "posts_search" do %>
+  				<span class="input-group-btn">
+  			        <%= text_field_tag :search, params[:search], class: "form-control" %>
+  			        <%= button_tag type: 'submit',  :title => nil, class: "btn btn-default" do %>								
+                <span class="glyphicon glyphicon-search"></span>
+  					<% end %>
+  				</span>
+  			<% end %>
+      </div>
+    </div>
 
-            <!-- Blog Categories Well -->
-            <div class="well">
-                <h4>Top Posts</h4>
-                <div class="row">
-                    <div class="col-lg-14">
-                        <ul class="list-unstyled">
-							<% @tops.each do |t| %>
-	                            <li>
-									<%= link_to t.title, post_path(t) %>
-									by <%= "#{t.author.name} (#{t.author.nickname})" %>
-								</li>
-							<%end%>
-                        </ul>
-                    </div>
-                </div>
-                <!-- /.row -->
+    <div class="well">
+        <h4>Top Posts</h4>
+        <div class="row">
+            <div class="col-lg-14">
+                <ul class="list-unstyled">
+    							<% @tops.each do |t| %>
+                    <li>
+    									<%= link_to t.title, post_path(t) %>
+    									by <%= "#{t.author.name} (#{t.author.nickname})" %>
+    								</li>
+    							<%end%>
+                </ul>
             </div>
         </div>
     </div>

@@ -1,10 +1,21 @@
 pt:
-  title: Título
-  body: Corpo
-  author: Autor
-  file: Arquivo
-  name: Nome
-  nickname: Nick
-  description: Descrição
-  
-  new_post: Novo Post
+  mongoid:
+    attributes:
+      post:
+        title: Título
+        body: Corpo
+        file: Arquivo
+        author: Autor
+        file_file_size: Tamanho do arquivo
+      author:
+        name: Nome
+        nickname: Vulgo
+        description: Bio
+    errors:
+      models:
+        post:
+          attributes:
+            file:
+              in_between: muito grande
+            file_file_size:
+              in_between: anexado deve ser inferior a 3mb

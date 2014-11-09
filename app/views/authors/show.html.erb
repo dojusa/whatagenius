@@ -8,11 +8,11 @@
 	<%end%>
 	
 	<br>
-	<%=  t :name%>: <%= link_to @author.name, author_path(@author) %>
+	<%= t('mongoid.attributes.author.name') %>: <%= link_to @author.name, author_path(@author) %>
 	<br>
-	<%=  t :nickname %>: <%= @author.nickname %>
+	<%= t('mongoid.attributes.author.nickname') %>: <%= @author.nickname %>
 	<br>
-	<%=  t :description%>: <%= @author.description %>
+	<%= t('mongoid.attributes.author.description') %>: <%= @author.description %>
 	
 	<% if user_signed_in? %>
 		<br>
@@ -28,5 +28,7 @@
         Posts
         <small>by the genius</small>
     </h1>
-	
-<%= render @author.posts.desc(:date) %>
+
+<div class="container">	
+  <%= render @author.posts.desc(:date) %>
+</div>
