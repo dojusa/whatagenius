@@ -5,8 +5,10 @@
 	        <small>all from genius</small>
 	    </h1>
   
-  		<div id="posts" class="container" style="padding-left: 0px !important;">
-  			<%= render @posts %> 
+  		<div id="posts">
+        <div class="container" style="padding-left: 0px !important;">
+    			<%= render @posts %> 
+        </div>
   			<%= paginate @posts %> 
   		</div>
 	</div>
