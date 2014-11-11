@@ -7,8 +7,9 @@
     <div class="collapse navbar-collapse">
       <ul class="nav navbar-nav">
 
-  		<li><%= link_to 'New Post', new_post_path %></li>
-
+      <% if can? :create, Post %>
+    		<li><%= link_to 'New Post', new_post_path %></li>
+      <%end%>
 	  	<li><%= link_to 'Authors', authors_path %></li>
 		
 		<% if user_signed_in? %>

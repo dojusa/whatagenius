@@ -22,6 +22,7 @@ class Post
   has_many :likes
   
   belongs_to :author
+  belongs_to :user
   
   def author_name
     if(self.author?)

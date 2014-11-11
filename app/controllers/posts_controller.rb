@@ -18,6 +18,7 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     @post.date = DateTime.now
+    @post.user = current_user
     if @post.save
       redirect_to posts_path
     else
@@ -32,7 +33,9 @@ class PostsController < ApplicationController
   
   def update
     @post = Post.find(params[:id])
-    
+    if @post.user.nil?
+      @post.user = current_user
+    end
     if @post.update(post_params)
       redirect_to post_path
     else

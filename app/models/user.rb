@@ -27,6 +27,7 @@ class User
   field :last_sign_in_ip,    type: String
 
   has_many :likes
+  has_many :posts
   
   def serialize_from_session(key, salt)
     record = to_adapter.get(key[0]["$oid"])
