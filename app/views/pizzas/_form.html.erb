@@ -1,0 +1,15 @@
+<%= form_for @pizza do |f| %>
+	<%= error_messages(@pizza) %>
+  
+	<p>
+		<%= f.label :motivo, :class => 'control-label' %>
+		<%= f.text_field :motivo, :class => 'form-control' %>
+	</p>
+	
+	<p>
+		<%= f.label :author %><br>
+		<%= f.collection_select :author_id, Author.asc(:name), :id, :name %>
+	</p>
+	
+	<%= f.submit class: "btn btn-success" %>
+<% end %>

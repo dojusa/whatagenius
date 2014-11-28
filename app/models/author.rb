@@ -19,5 +19,6 @@ class Author
   field :description, type: String
   
   has_many :posts, dependent: :restrict
+  has_many :pizzas
   
 end

@@ -7,18 +7,20 @@ Rails.application.routes.draw do
   root 'posts#index'
   
   resources :posts do
-    member do
-      get 'like'
-    end
-    
     collection do
       get 'search'
       get :autocomplete_author_name
     end
   end
   
+  # like a post
+  get 'likes/post/:id/like_unlike' => 'likes#like_unlike', as: :like_unlike_post
+  
   resources :authors
+  resources :pizzas
 
+  get 'pizzas' => 'pizzas#index'
+  
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

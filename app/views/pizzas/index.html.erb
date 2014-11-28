@@ -1,0 +1,9 @@
+<h2>Adicione uma pizza</h2>
+
+<%= render 'form' %>
+
+<%= javascript_include_tag "//www.google.com/jsapi", "chartkick" %>
+
+<%= pie_chart @pizzas_by_author %>
+
+<%= bar_chart @pizzas_by_author %>
