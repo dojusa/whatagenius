@@ -7,7 +7,7 @@
 	</p>
 	
 	<p>
-		<%= f.label :author %><br>
+		<%= f.label 'Quem pagou' %><br>
 		<%= f.collection_select :author_id, Author.asc(:name), :id, :name %>
 	</p>
 	

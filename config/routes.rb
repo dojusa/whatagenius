@@ -18,8 +18,6 @@ Rails.application.routes.draw do
   
   resources :authors
   resources :pizzas
-
-  get 'pizzas' => 'pizzas#index'
   
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
