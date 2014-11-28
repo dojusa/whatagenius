@@ -16,6 +16,6 @@ class Pizza
       |v| map[Author.find(v["_id"]).name] = v["count"] 
     }
     
-    map
+    map.sort
   end
 end
